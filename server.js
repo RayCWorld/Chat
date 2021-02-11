@@ -20,10 +20,13 @@ let messages = []
 
 //Quando um client se conectar | on connection | socket é o client
 io.on('connection', socket => {
+    //Mostra o id
     console.log(`Socket conectado: ${socket.id}`)
 
+    //Carrega mensagens anteriores
     socket.emit('previousMessages', messages)
 
+    //Envia mensagens para todomundo
     socket.on('sendMessage', data => {
        messages.push(data)
        socket.broadcast.emit('receivedMessage', data)
