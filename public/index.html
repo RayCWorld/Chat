@@ -21,7 +21,7 @@
     <strong></strong>
     <script type="text/javascript">
         //Ouvir a conexão pelo socket
-        var socket = io(APP_URL+':'+ process.env.PORT || 3000)
+        var socket = io(process.env.APP_URL + ':' + process.env.PORT || 3000)
 
         function renderMessage(message){
                 $('.messages').append('<div class="message"><strong>'+ message.author +'</strong>: '+ message.message +'</div>')
