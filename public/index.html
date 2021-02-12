@@ -55,8 +55,8 @@
         //verificar o submit do form
         $('#chat').submit(event => {
             event.preventDefault()
-            now = new Date
 
+            now = new Date
             var date = now.getDay() +'/'+ now.getMonth() +'/'+ now.getFullYear()
             var dateString = toString()
 
@@ -64,15 +64,12 @@
             var timeString = time.toString()
 
             var author = $('input[name=username]').val()
-            var message = $('input[name=message]').val()
-
-
+            var message = ($('input[name=message]').val()).toString()
 
             $('input[name=message]').val("")
 
-
             if(author && message){
-                if (message.lenght <= 100) {
+                if (message.length <= 50) {
                 var messageObject = {
                     author: author,
                     message: message,
@@ -83,6 +80,7 @@
                 socket.emit('sendMessage', messageObject)
             }else {
                 console.log('Não foi não?')
+
             }
         }
         })
