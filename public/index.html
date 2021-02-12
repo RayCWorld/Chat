@@ -66,19 +66,25 @@
             var author = $('input[name=username]').val()
             var message = $('input[name=message]').val()
 
+
+
             $('input[name=message]').val("")
 
 
             if(author && message){
+                if (message.lenght <= 100) {
                 var messageObject = {
                     author: author,
                     message: message,
                     time: timeString,
                     date: dateString
-                };
+                }
                 renderMessage(messageObject,)
                 socket.emit('sendMessage', messageObject)
+            }else {
+                console.log('Não foi não?')
             }
+        }
         })
 
     </script>
