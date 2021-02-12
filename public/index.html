@@ -14,7 +14,7 @@
 <body class="container">
     <form id="chat">
         <input class="form-control my-3" type="text" name="username" placeholder="Digite seu usuário">
-        <div class="messages mb-3"></div>
+        <div class="messages mb-3 overflow-auto"></div>
         <input class="form-control mb-3" type="text" name="message" placeholder="Digite sua mensagem">
         <button class="btn btn-success" type="submit">Enviar</button>
     </form>
@@ -44,6 +44,9 @@
 
             var author = $('input[name=username]').val()
             var message = $('input[name=message]').val()
+
+            $('input[name=message]').val("")
+
 
             if(author && message){
                 var messageObject = {
