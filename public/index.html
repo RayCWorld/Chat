@@ -11,14 +11,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="container">
+<body class="container" style="background-color: #6610f2;">
     <form id="chat">
         <input class="form-control my-3" type="text" name="username" placeholder="Digite seu usuário">
-        <div class="messages mb-3 overflow-auto"></div>
+        <div class="messages mb-3 overflow-auto " style="background-color: #8540f5; color: white;"></div>
         <input class="form-control mb-3" type="text" name="message" placeholder="Digite sua mensagem">
         <button class="btn btn-success" type="submit">Enviar</button>
     </form>
-    <strong></strong>
+    <span></span>
     <script type="text/javascript">
         String.prototype.escape = function() {
             var tagsToReplace = {
@@ -30,13 +30,16 @@
                 return tagsToReplace[tag] || tag;
             });
         };
+
         
         //Ouvir a conexão pelo socket
         //var socket = io(process.env.APP_URL + ':' + process.env.PORT || 3000)
         this.socket = io('https://chat-chat11.herokuapp.com/')
+        //var socket = io("http://localhost:3000")
 
         function renderMessage(message){
-                $('.messages').append('<div class="message"><strong>'+ message.author.escape() +'</strong>: '+ message.message.escape() +'</div>')
+                $('.messages').append('<div class="message"><strong>'+ message.author.escape() +' </strong> ' + '<span>' + message.time + '</span>: ' + message.message.escape() +'</div>')
+                $(".messages").scrollTop($(".messages")[0].scrollHeight);
             }
 
         socket.on('previousMessages', function(messages){
@@ -52,6 +55,13 @@
         //verificar o submit do form
         $('#chat').submit(event => {
             event.preventDefault()
+            now = new Date
+
+            var date = now.getDay() +'/'+ now.getMonth() +'/'+ now.getFullYear()
+            var dateString = toString()
+
+            var time = now.getHours() +':'+ now.getMinutes() +':'+ now.getSeconds()
+            var timeString = time.toString()
 
             var author = $('input[name=username]').val()
             var message = $('input[name=message]').val()
@@ -63,8 +73,10 @@
                 var messageObject = {
                     author: author,
                     message: message,
+                    time: timeString,
+                    date: dateString
                 };
-                renderMessage(messageObject)
+                renderMessage(messageObject,)
                 socket.emit('sendMessage', messageObject)
             }
         })
