@@ -36,7 +36,7 @@ $('#chat').submit(event => {
 
     now = new Date
     var date = now.getDay() +'/'+ now.getMonth() +'/'+ now.getFullYear()
-    var dateString = toString()
+    var dateString = date.toString()
 
     var time = now.getHours() +':'+ now.getMinutes() +':'+ now.getSeconds()
     var timeString = time.toString()

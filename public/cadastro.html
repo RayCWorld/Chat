@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.1/socket.io.js" integrity="sha512-oFOCo2/3DtjrJG4N27BjSLQWoiBv171sK6a+JiWjp/7agxC2nCUP358AqzxkBUb5jX8g6CYLPdSKQTbC0weCwA==" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="container d-flex justify-content-center centralizar bg-cor-padrao">
+    <div class="card shadow-lg p-3 bg-body m-2 rounded d-flex">
+        <div class="card-body">
+            <form action="/register-new" method="POST">
+                <h2 style="text-align: center; color: #0F0140;">Cadastro</h2>
+                <div class="form-floating mb-2">
+                    <input class="form-control form-control-lg" type="text" name="name" id="floatingName" placeholder="Nome">
+                    <label for="floatingName">Nome Completo</label>
+                </div>
+                <div class="form-floating mb-2">
+                    <input class="form-control form-control-lg" type="text" name="nickname" id="floatingNickname" placeholder="Nome">
+                    <label for="floatingNickname">Apelido</label>
+                </div>
+                <div class="form-floating mb-2">
+                    <input class="form-control form-control-lg" type="text" name="email" id="floatingEmail" placeholder="Nome">
+                    <label for="floatingEmail">E-mail</label>
+                </div>
+                <div class="form-floating mb-2">
+                    <input class="form-control form-control-lg" type="text" name="old" id="floatingOld" placeholder="Nome">
+                    <label for="floatingOld">Idade</label>
+                </div>
+                <div class="form-floating mb-2">
+                    <input class="form-control form-control-lg" type="text" name="password" id="floatingSenha1" placeholder="Nome">
+                    <label for="floatingSenha1">Senha</label>
+                </div>
+                <div class="form-floating mb-2" oninput="">
+                    <input class="form-control form-control-lg" type="text" name="passworld2" id="floatingSenha2" placeholder="Nome" onblur="senha()">
+                    <label for="floatingSenha2">Digite sua senha novamente</label>
+                </div>
+                <div class="d-grid">
+                    <button class="btn btn-lg botao-login-cor mb-2" type="submit">Registrar</button>
+                    <a href="login.html" class="btn btn-lg botao-login-cor">Voltar</a>
+                  </div>
+            </form>
+        </div>
+    </div>
+    <script src="./cdst.js"></script>
+</body>
+</html>

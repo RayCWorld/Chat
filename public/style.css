@@ -1,16 +1,46 @@
- 
-  #chat {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+#chat {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.messages {
+  height: 50vh;
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 20px;
+  background-color: #7B17A6;
+  color: white;
+}
+
+.centralizar {
+  height: 100vh;
+  display: flex;
+  align-items: center;
   
-  
-  .messages {
-      height: 50vh;
-      width: 100%;
-    border: 1px solid #ddd;
-    padding: 20px;
-  }
+}
+
+.bg-cor-padrao{
+  background-color: #3B0E59;
+}
+
+.botao-login-cor{
+  background-color: #C729F2;
+  color: white;
+}
+
+.card-card{
+  margin-top: auto;
+  margin-bottom: auto;  
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.invalid {
+  color: red;
+  border-color: red;
+}

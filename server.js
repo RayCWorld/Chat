@@ -10,8 +10,16 @@ app.set('views', path.join(__dirname, "public"))
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html')
 
-app.use('/', (req, res) => {
-    res.render('index.html')
+app.use('/chat', (req, res) => {
+    res.render('chat.html')
+})
+
+app.use('/login', (req, res) => {
+    res.render('login.html')
+})
+
+app.use('/register', (req, res) => {
+    res.render('cadastro.html')
 })
 
 //array que armazena todas as mensagens
