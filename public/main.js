@@ -12,19 +12,13 @@ String.prototype.escape = function() {
 
 //Ouvir a conexão pelo socket
 //var socket = io(process.env.APP_URL + ':' + process.env.PORT || 3000)
-this.socket = io('https://chat-chat11.herokuapp.com/')
-//var socket = io("http://localhost:3000")
+//this.socket = io('https://chat-chat11.herokuapp.com/')
+var socket = io("http://localhost:3000")
 
 function renderMessage(message){
         $('.messages').append('<div class="message"><strong>'+ message.author.escape() +' </strong> ' + '<span>' + message.time + '</span>: ' + message.message.escape() +'</div>')
         $(".messages").scrollTop($(".messages")[0].scrollHeight);
     }
-
-socket.on('previousMessages', function(messages){
-    for (message of messages){
-        renderMessage(message)
-    }
-})
 
 socket.on('receivedMessage', function(message){
     renderMessage(message)

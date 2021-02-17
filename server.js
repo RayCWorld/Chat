@@ -1,9 +1,12 @@
 const express = require('express');
-const path = require('path')
+const path = require('path');
+const addMenssage = require('./controllers/messageController');
 
 const app = express();
 const http = require('http').createServer(app)
 const io = require('socket.io')(http)
+
+require('./controllers/messageController')
 
 app.use(express.static(path.join(__dirname, "public")))
 app.set('views', path.join(__dirname, "public"))
@@ -22,22 +25,16 @@ app.use('/register', (req, res) => {
     res.render('cadastro.html')
 })
 
-//array que armazena todas as mensagens
-let messages = []
-
 
 //Quando um client se conectar | on connection | socket é o client
 io.on('connection', socket => {
     //Mostra o id
     console.log(`Socket conectado: ${socket.id}`)
 
-    //Carrega mensagens anteriores
-    socket.emit('previousMessages', messages)
-
     //Envia mensagens para todomundo
     socket.on('sendMessage', data => {
-       messages.push(data)
-       socket.broadcast.emit('receivedMessage', data)
+        addMenssage(data)
+        socket.broadcast.emit('receivedMessage', data)
     })
 })
 
