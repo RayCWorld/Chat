@@ -23,7 +23,7 @@
 }
 
 .bg-cor-padrao{
-  background-color: #3B0E59;
+  background-image: linear-gradient(to right, #3b0e59, #5a177e, #7b1ea4, #a025cb, #c729f2);;
 }
 
 .botao-login-cor{

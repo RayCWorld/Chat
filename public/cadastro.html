@@ -13,7 +13,7 @@
 <body class="container d-flex justify-content-center centralizar bg-cor-padrao">
     <div class="card shadow-lg p-3 bg-body m-2 rounded d-flex">
         <div class="card-body">
-            <form action="/register-new" method="POST">
+            <form action="/register-new" method="POST" id="register">
                 <h2 style="text-align: center; color: #0F0140;">Cadastro</h2>
                 <div class="form-floating mb-2">
                     <input class="form-control form-control-lg" type="text" name="name" id="floatingName" placeholder="Nome">
@@ -36,7 +36,7 @@
                     <label for="floatingSenha1">Senha</label>
                 </div>
                 <div class="form-floating mb-2" oninput="">
-                    <input class="form-control form-control-lg" type="text" name="passworld2" id="floatingSenha2" placeholder="Nome" onblur="senha()">
+                    <input class="form-control form-control-lg" type="text" id="floatingSenha2" placeholder="Nome">
                     <label for="floatingSenha2">Digite sua senha novamente</label>
                 </div>
                 <div class="d-grid">
@@ -46,6 +46,6 @@
             </form>
         </div>
     </div>
-    <script src="./cdst.js"></script>
+    <script src="./main.js"></script>
 </body>
 </html>

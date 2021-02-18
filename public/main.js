@@ -12,8 +12,8 @@ String.prototype.escape = function() {
 
 //Ouvir a conexão pelo socket
 //var socket = io(process.env.APP_URL + ':' + process.env.PORT || 3000)
-this.socket = io('https://chat-chat11.herokuapp.com/')
-//var socket = io("http://localhost:3000")
+//this.socket = io('https://chat-chat11.herokuapp.com/')
+var socket = io("http://localhost:3000")
 
 function renderMessage(message){
         $('.messages').append('<div class="message"><strong>'+ message.author.escape() +' </strong> ' + '<span>' + message.time + '</span>: ' + message.message.escape() +'</div>')
@@ -55,4 +55,25 @@ $('#chat').submit(event => {
 
     }
 }
+})
+
+$('#register').submit(event => {
+    event.preventDefault()
+
+    let senha1 = document.getElementById('floatingSenha1')
+    let senha1Value = senha1.value
+    let senha2 = document.getElementById('floatingSenha2')
+    let senha2Value = senha2.value
+    
+    if (senha1Value != senha2Value) {
+        senha2.classList = "form-control form-control-lg border border-danger text-danger"
+    } else {
+        senha2.classList = "form-control form-control-lg border border-danger text-success"
+        event.target.submit()
+    }
+
+    
+
+
+
 })
